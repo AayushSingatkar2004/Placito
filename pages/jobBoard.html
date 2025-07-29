@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placito</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Google Fonts: Fredoka & Comic Neue -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Fredoka&display=swap" rel="stylesheet"> -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .filter-btn {
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            margin-right: 8px;
+            color: #4b5563;
+            background-color: white;
+            border: 1px solid #4b5563;
+        }
+
+        .filter-btn:hover {
+            opacity: 0.9;
+            background-color: #f3f4f6;
+            color: #4b5563;   
+            border: 1px solid #4b5563;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(90deg, #9333ea, #ec4899);
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(217, 70, 239, 0.3);
+            border: 1px solid #4b5563;
+        }
+
+        .job-card {
+            border-radius: 15px;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            transition: 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .apply-btn {
+            background: linear-gradient(90deg, #9333ea, #ec4899);
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+
+        .badge-custom {
+            border-radius: 12px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+        }
+
+        .company-box {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .job {
+            margin-top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container1 px-4">
+            <a class="navbar-brand gradient-text" href="../index.html">Placito</a>
+            <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </div>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav navbar-pages">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobBoard.html">Job Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-join ms-3 ">Join Community 🚀</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="text-center job mb-12" data-aos="fade-up">
+        <h1 class="text-4xl md:text-6xl font-bold gradient-text  fredoka-font mb-4">Job Board 💼</h1>
+        <p class="text-xl text-gray-700 comic-font max-w-2xl mx-auto text-gray">Discover amazing opportunities from top companies! Your dream job is just a click away! 🚀</p>
+    </div>
+
+
+    <section class="container " data-aos="fade-up">>
+        <div class=" search-box " >
+            <input class="w-100 search-input" placeholder="        Search jobs, companies, or skills.." type="text">
+            <i class="bi bi-search search-icon text-gray"></i>
+            <button class="search-btn btn btn-join"><i class="bi bi-search"></i>Search</button>
+        </div>
+    </section>
+
+    <section data-aos="fade-up">
+        <div class="container py-5">
+            <!-- Filter Buttons -->
+            <div class="mb-4 ">
+                <button class="btn filter-btn active" onclick="filterJobs('All')">All</button>
+                <button class="btn filter-btn" onclick="filterJobs('Tech')">Tech</button>
+                <button class="btn filter-btn" onclick="filterJobs('Non-tech')">Non-tech</button>
+                <button class="btn filter-btn" onclick="filterJobs('Internship')">Internship</button>
+                <button class="btn filter-btn" onclick="filterJobs('Remote')">Remote</button>
+            </div>
+
+            <!-- Trending Companies -->
+            <h5 class="fw-bold mb-3">🔥 Trending Companies</h5>
+            <div class="row mb-4" id="companies">
+                <!-- Dynamically inserted -->
+            </div>
+
+            <!-- Latest Opportunities -->
+            <h5 class="fw-bold mb-3">✨ Latest Opportunities</h5>
+            <div class="row" id="jobCards">
+                <!-- Dynamically inserted -->
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="../js/script.js"></script>
+    <script>
+        const companies = [
+            { name: 'Google', openings: 45 },
+            { name: 'Microsoft', openings: 32 },
+            { name: 'Amazon', openings: 28 },
+            { name: 'Meta', openings: 19 },
+            { name: 'Apple', openings: 15 },
+            { name: 'Netflix', openings: 12 }
+        ];
+
+        const jobs = [
+            {
+                title: 'Software Engineer Intern',
+                company: 'Google',
+                rating: 4.8,
+                location: 'Bangalore, India',
+                salary: '₹50,000/month',
+                applicants: 234,
+                time: '2 hours ago',
+                type: 'Internship',
+                category: 'Tech'
+            },
+            {
+                title: 'Product Manager',
+                company: 'Microsoft',
+                rating: 4.7,
+                location: 'Hyderabad, India',
+                salary: '₹25-30 LPA',
+                applicants: 156,
+                time: '5 hours ago',
+                type: 'Full-time',
+                category: 'Non-tech'
+            },
+            {
+                title: 'Data Scientist',
+                company: 'Amazon',
+                rating: 4.6,
+                location: 'Mumbai, India',
+                salary: '₹20-25 LPA',
+                applicants: 189,
+                time: '1 day ago',
+                type: 'Full-time',
+                category: 'Tech'
+            },
+            {
+                title: 'Marketing Associate',
+                company: 'Flipkart',
+                rating: 4.5,
+                location: 'Delhi, India',
+                salary: '₹8-12 LPA',
+                applicants: 98,
+                time: '2 days ago',
+                type: 'Full-time',
+                category: 'Non-tech'
+            },
+            {
+                title: 'Frontend Developer',
+                company: 'Zomato',
+                rating: 4.4,
+                location: 'Remote',
+                salary: '₹15-20 LPA',
+                applicants: 267,
+                time: '3 days ago',
+                type: 'Remote',
+                category: 'Tech'
+            },
+            {
+                title: 'Business Analyst Intern',
+                company: 'Paytm',
+                rating: 4.3,
+                location: 'Noida, India',
+                salary: '₹25,000/month',
+                applicants: 145,
+                time: '4 days ago',
+                type: 'Internship',
+                category: 'Non-tech'
+            }
+        ];
+
+        function renderCompanies() {
+            const container = document.getElementById('companies');
+            container.innerHTML = companies.map(c => `
+      <div class="col-6 col-md-2 mb-3">
+        <div class="company-box">
+          <h6 class="fw-bold">${c.name}</h6>
+          <small class="text-muted">${c.openings} openings</small>
+        </div>
+      </div>
+    `).join('');
+        }
+
+        function renderJobs(filtered) {
+            const container = document.getElementById('jobCards');
+            container.innerHTML = filtered.map(job => {
+                // Determine badge color based on job type
+                let badgeColor = '', badgeText = '';
+                if (job.type === 'Internship') {
+                    badgeColor = 'background-color:#dbeafe'; // Blue
+                    badgeText =  'color: #1e40af';
+                } else if (job.type === 'Remote') {
+                    badgeColor = 'background-color:#dcfce7'
+                    badgeText = 'color: #166534';
+                } else { // Purple (Full-time or default)
+                    badgeColor =  'background-color:#f3e8ff'
+                    badgeText = 'color: #6b21a8';
+                }
+
+                return `
+      <div class="col-md-6 mb-4" data-aos="fade-up">
+        <div class="job-card p-3 rounded shadow-sm bg-white">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="mb-0 fw-bold">${job.title}</h6>
+            <span class=""
+            style="${badgeColor}; ${badgeText}; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem;"
+            >
+              ${job.type}
+            </span>
+          </div>
+          <div class="text-muted mb-2"><strong>${job.company}</strong> ⭐ ${job.rating}</div>
+          <p class="small text-muted">${job.location}</p>
+          <p class="small text-muted">💰 ${job.salary}</p>
+          <p class="small text-muted">👥 ${job.applicants} applicants • 🕒 ${job.time}</p>
+          <button class="apply-btn w-100">Apply Now 🚀</button>
+        </div>
+      </div>
+    `;
+            }).join('');
+        }
+
+
+        function filterJobs(filter) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.trim() === filter) btn.classList.add('active');
+            });
+
+            if (filter === 'All') {
+                renderJobs(jobs);
+            } else if (['Internship', 'Remote'].includes(filter)) {
+                renderJobs(jobs.filter(j => j.type === filter));
+            } else {
+                renderJobs(jobs.filter(j => j.category === filter));
+            }
+        }
+
+        // Init
+        renderCompanies();
+        renderJobs(jobs);
+    </script>
+    <!-- AOS JS (missing from your code) -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // animation duration
+            once: true      // only animate once
+        });
+    </script>
+
+</body>
+
+</html>

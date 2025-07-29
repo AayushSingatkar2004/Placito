@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placito</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Google Fonts: Fredoka & Comic Neue -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Fredoka&display=swap" rel="stylesheet"> -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .filter-btn {
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            margin-right: 8px;
+            color: #4b5563;
+            background-color: white;
+            border: 1px solid #4b5563;
+        }
+
+        .filter-btn:hover {
+            opacity: 0.9;
+            background-color: #f3f4f6;
+            color: #4b5563;
+            border: 1px solid #4b5563;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(90deg, #9333ea, #ec4899);
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(217, 70, 239, 0.3);
+            border: 1px solid #4b5563;
+        }
+
+        .course-card {
+            border-radius: 15px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            background: #fff;
+        }
+
+        .badge-custom {
+            font-size: 0.75rem;
+            padding: 0.3em 0.6em;
+            border-radius: 12px;
+        }
+
+        .card-footer {
+            background: none;
+            border-top: none;
+        }
+
+        .courses {
+            margin-top: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container1 px-4">
+            <a class="navbar-brand gradient-text" href="../index.html">Placito</a>
+            <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </div>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav navbar-pages">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobBoard.html">Job Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-join ms-3 ">Join Community 🚀</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div data-aos="fade-up" class="text-center courses job mb-12">
+        <h1 class="text-4xl md:text-6xl font-bold gradient-text  fredoka-font mb-4"> Our Courses 🎓</h1>
+        <p class="text-xl text-gray-700 comic-font max-w-2xl mx-auto text-gray">Level up your skills with our expert-designed courses! From interviews to coding - we've got you covered! 🚀</p>
+    </div>
+
+
+    <div class="container  py-4" data-aos="fade-up">
+        <!-- Filters -->
+        <div class="d-flex flex-wrap gap-2 justify-content-center mb-4">
+            <button class="btn btn-outline-primary filter-btn active" data-filter="All">All</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="Online">Online</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="Offline">Offline</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="Hybrid">Hybrid</button>
+        </div>
+
+        <!-- Course Cards -->
+        <div id="course-container" class="row g-4">
+            <!-- Courses will render here -->
+        </div>
+    </div>
+
+
+    <script src="../js/script.js"></script>
+    <script>
+        const courses = [
+            {
+                title: "Interview Mastery Bootcamp",
+                mode: "Online",
+                level: "Beginner to Advanced",
+                instructor: "Priya Sharma (Ex-Google)",
+                duration: "4 weeks",
+                lessons: 24,
+                students: 1250,
+                rating: 4.9,
+                price: 2999,
+                discount: 12999,
+                features: ["Live Mock Interviews", "Resume Review", "Salary Negotiation", "Lifetime Access"],
+                tag: "Most Popular"
+            },
+            {
+                title: "Aptitude Booster Program",
+                mode: "Online",
+                level: "All Levels",
+                instructor: "Rajesh Kumar (CAT 99.9%iler)",
+                duration: "6 weeks",
+                lessons: 36,
+                students: 2100,
+                rating: 4.8,
+                price: 1999,
+                discount: 7499,
+                features: ["500+ Practice Questions", "Speed Techniques", "Mock Tests", "Doubt Clearing"],
+                tag: "Best Value"
+            },
+            {
+                title: "Frontend Development Crash Course",
+                mode: "Hybrid",
+                level: "Beginner",
+                instructor: "Ankit Verma (Ex-Microsoft)",
+                duration: "8 weeks",
+                lessons: 48,
+                students: 850,
+                rating: 4.7,
+                price: 4999,
+                discount: 7999,
+                features: ["Live Projects", "Portfolio Building", "Job Assistance", "Industry Mentorship"],
+                tag: "Job Guarantee"
+            },
+            {
+                title: "Data Science Foundation",
+                mode: "Online",
+                level: "Intermediate",
+                instructor: "Dr. Sneha Patel (IIT Delhi)",
+                duration: "10 weeks",
+                lessons: 60,
+                students: 650,
+                rating: 4.6,
+                price: 3999,
+                discount: 6999,
+                features: ["Hands-on Projects", "Industry Datasets", "Kaggle Competitions", "Certification"],
+                tag: "New"
+            },
+            {
+                title: "Communication Skills Workshop",
+                mode: "Offline",
+                level: "All Levels",
+                instructor: "Meera Singh (Corporate Trainer)",
+                duration: "3 weeks",
+                lessons: 18,
+                students: 450,
+                rating: 4.5,
+                price: 1499,
+                discount: 2999,
+                features: ["Group Discussions", "Public Speaking", "Body Language", "Personality Development"],
+                tag: "Limited Seats"
+            },
+            {
+                title: "Complete Placement Package",
+                mode: "Hybrid",
+                level: "All Levels",
+                instructor: "Team Placito",
+                duration: "12 weeks",
+                lessons: 96,
+                students: 320,
+                rating: 4.9,
+                price: 7999,
+                discount: 12999,
+                features: ["Everything Included", "Personal Mentor", "100% Job Assistance", "Money Back Guarantee"],
+                tag: "Premium"
+            }
+        ];
+
+        function renderCourses(filter) {
+            const container = document.getElementById("course-container");
+            container.innerHTML = "";
+
+            const filtered = filter === "All" ? courses : courses.filter(c => c.mode === filter);
+
+            filtered.map(course => {
+                const tagColor = {
+                    "Most Popular": "primary",
+                    "Best Value": "success",
+                    "Job Guarantee": "info",
+                    "New": "warning",
+                    "Limited Seats": "danger",
+                    "Premium": "dark"
+                }[course.tag] || "secondary";
+
+                const featureList = course.features.map(f => `<li class="mb-1">✅ ${f}</li>`).join("");
+
+                const card = `
+          <div class="col-md-6" data-aos="fade-up" >
+            <div class="course-card">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-${course.mode === 'Online' ? 'info' : course.mode === 'Offline' ? 'secondary' : 'warning'} text-dark">${course.mode}</span>
+                <span class="badge bg-${tagColor} badge-custom">${course.tag}</span>
+              </div>
+              <h5>${course.title}</h5>
+              <p class="text-muted mb-1">By ${course.instructor}</p>
+              <p class="text-muted mb-1">${course.duration} • ${course.lessons} lessons • ${course.students} students • ⭐ ${course.rating}</p>
+              <ul class="ps-3 mb-3">${featureList}</ul>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="mb-0 text-success">₹${course.price.toLocaleString()}</h5>
+                  <small class="text-decoration-line-through text-muted">₹${course.discount.toLocaleString()}</small><br/>
+                  <small class="text-success">Save ${Math.round(((course.discount - course.price) / course.discount) * 100)}%</small>
+                </div>
+                <button class="btn btn btn-join">Enroll Now 🚀</button>
+              </div>
+            </div>
+          </div>
+        `;
+                container.innerHTML += card;
+            });
+        }
+
+        // Initial render
+        renderCourses("All");
+
+        // Filter button handling
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                renderCourses(btn.getAttribute("data-filter"));
+            });
+        });
+    </script>
+
+            <!-- AOS JS (missing from your code) -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // animation duration
+            once: true      // only animate once
+        });
+    </script>
+
+</body>
+
+</html>

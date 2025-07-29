@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placito</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Google Fonts: Fredoka & Comic Neue -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Fredoka&display=swap" rel="stylesheet"> -->
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container1 px-4">
+            <a class="navbar-brand gradient-text" href="index.html">Placito</a>
+            <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </div>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav navbar-pages">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/jobBoard.html">Job Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-join ms-3 ">Join Community 🚀</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center hero py-5 bg-light">
+        <div class="container ">
+            <h1 class="display-4 fw-bold gradient-text bounce-text">Welcome to Placito! 🚀</h1>
+            <p class="lead">Your ultimate destination for <span class="text-purple">placement prep</span>, <span
+                    class="text-pink">mock interviews</span>, and <span class="text-blue">career growth</span>!</p>
+            <div class="mt-4">
+                <a class="btn btn-gradient me-3" href="#">Join Placito Today!</a>
+                <a class="btn btn-gradient2" href="#">Explore Courses 📚</a>
+            </div>
+            <div class="mt-3">
+                <i class="bi bi-instagram fs-4 me-3 text-pink scale-icon"></i>
+                <i class="bi bi-whatsapp fs-4 me-3 text-green scale-icon"></i>
+                <i class="bi bi-linkedin fs-4 text-blue scale-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Placito -->
+    <section class="py-5 placito-features">
+        <div class="container text-center">
+            <div data-aos="fade-up">
+                <h2 class="fw-bold gradient-text fs-1">Why Choose Placito? 🧩</h2>
+                <p>We’ve got everything you need to ace your placements!</p>
+            </div>
+            <div class="row g-4 m-8" id="features-section">
+                <!-- Dynamic Features go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="text-center stats py-5">
+        <div class="container ">
+            <div class="row g-4 justify-content-center" id="stats-section">
+                <!-- Dynamic Stats go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="bg-light py-5 stories">
+        <div class="container text-center">
+            <h2 class="fw-bold gradient-text fs-1" data-aos="fade-up">Success Stories 🎉</h2>
+            <div class="row g-4 mt-4" id="testimonials-section">
+                <!-- Dynamic Testimonials go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center CTA py-5 mb-10">
+        <div class="container " data-aos="fade-up">
+            <h2 class="fw-bold gradient-text fs-1">Ready to Start Your Journey? 🚀</h2>
+            <p>Join thousands of students already crushing their placement goals!</p>
+            <div class="mt-3">
+                <a class="btn btn-gradient me-3" href="#">Join Our Community 💖</a>
+                <a class="btn btn-gradient2" href="#">Ask a Question 💬</a>
+            </div>
+        </div>
+        <button class="glow-button btn btn-join ms-3 fixed-btn "> 🚀 Join Now !</button>
+    </section>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // animation duration
+            once: true      // only animate once
+        });
+    </script>
+
+</body>
+
+</html>
