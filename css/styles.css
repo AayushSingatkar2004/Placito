@@ -70,10 +70,23 @@ body {
     box-shadow: none !important;
     outline: none !important;
 }
+.placito-btns{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 20px;
+    }
 
 
 @media (max-width:991px) {
 
+
+    .placito-btns{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
     .navbar-pages {
         display: flex;
@@ -117,7 +130,7 @@ body {
 
 .hero {
     background: linear-gradient(135deg, #f5f7fa 0%, #ebebeb 100%);
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 
