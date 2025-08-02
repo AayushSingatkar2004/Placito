@@ -124,10 +124,12 @@
     </div>
 
 
-    <section class="container " data-aos="fade-up">>
+    <section class="container " data-aos="fade-up">
         <div class=" search-box " >
-            <input class="w-100 search-input" placeholder="        Search jobs, companies, or skills.." type="text">
-            <i class="bi bi-search search-icon text-gray"></i>
+            <div class="search">
+                <i class="bi bi-search search-icon text-gray"></i>
+                <input class="w-100 search-input" placeholder="Search jobs, companies, or skills.." type="text">
+            </div>
             <button class="search-btn btn btn-join"><i class="bi bi-search"></i>Search</button>
         </div>
     </section>
@@ -135,7 +137,7 @@
     <section data-aos="fade-up">
         <div class="container py-5">
             <!-- Filter Buttons -->
-            <div class="mb-4 ">
+            <div class="mb-4 filter-tags">
                 <button class="btn filter-btn active" onclick="filterJobs('All')">All</button>
                 <button class="btn filter-btn" onclick="filterJobs('Tech')">Tech</button>
                 <button class="btn filter-btn" onclick="filterJobs('Non-tech')">Non-tech</button>
