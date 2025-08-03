@@ -34,7 +34,7 @@
         .filter-btn:hover {
             opacity: 0.9;
             background-color: #f3f4f6;
-            color: #4b5563;   
+            color: #4b5563;
             border: 1px solid #4b5563;
         }
 
@@ -120,12 +120,13 @@
 
     <div class="text-center job mb-12" data-aos="fade-up">
         <h1 class="text-4xl md:text-6xl font-bold gradient-text  fredoka-font mb-4">Job Board 💼</h1>
-        <p class="text-xl text-gray-700 comic-font max-w-2xl mx-auto text-gray">Discover amazing opportunities from top companies! Your dream job is just a click away! 🚀</p>
+        <p class="text-xl text-gray-700 comic-font max-w-2xl mx-auto text-gray">Discover amazing opportunities from top
+            companies! Your dream job is just a click away! 🚀</p>
     </div>
 
 
     <section class="container " data-aos="fade-up">
-        <div class=" search-box " >
+        <div class=" search-box ">
             <div class="search">
                 <i class="bi bi-search search-icon text-gray"></i>
                 <input class="w-100 search-input" placeholder="Search jobs, companies, or skills.." type="text">
@@ -182,7 +183,9 @@
                 applicants: 234,
                 time: '2 hours ago',
                 type: 'Internship',
-                category: 'Tech'
+                category: 'Tech',
+                description: 'Work on cutting-edge projects with the Google Engineering team. You’ll help build scalable web apps and internal tools.',
+                skills: ['JavaScript', 'Data Structures', 'React', 'API Integration']
             },
             {
                 title: 'Product Manager',
@@ -193,7 +196,9 @@
                 applicants: 156,
                 time: '5 hours ago',
                 type: 'Full-time',
-                category: 'Non-tech'
+                category: 'Non-tech',
+                description: 'Lead cross-functional teams to design and deliver innovative software solutions that solve key business problems.',
+                skills: ['Agile Methodologies', 'Stakeholder Management', 'Market Research', 'Communication']
             },
             {
                 title: 'Data Scientist',
@@ -204,7 +209,9 @@
                 applicants: 189,
                 time: '1 day ago',
                 type: 'Full-time',
-                category: 'Tech'
+                category: 'Tech',
+                description: 'Analyze large datasets to generate business insights and build machine learning models to improve performance.',
+                skills: ['Python', 'Machine Learning', 'SQL', 'Data Visualization']
             },
             {
                 title: 'Marketing Associate',
@@ -215,7 +222,9 @@
                 applicants: 98,
                 time: '2 days ago',
                 type: 'Full-time',
-                category: 'Non-tech'
+                category: 'Non-tech',
+                description: 'Plan and execute digital marketing campaigns to boost brand visibility and sales across multiple channels.',
+                skills: ['SEO', 'Content Creation', 'Analytics', 'Social Media Marketing']
             },
             {
                 title: 'Frontend Developer',
@@ -226,7 +235,9 @@
                 applicants: 267,
                 time: '3 days ago',
                 type: 'Remote',
-                category: 'Tech'
+                category: 'Tech',
+                description: 'Build and optimize responsive user interfaces for Zomato’s web platform using modern web technologies.',
+                skills: ['HTML', 'CSS', 'JavaScript', 'React']
             },
             {
                 title: 'Business Analyst Intern',
@@ -237,9 +248,12 @@
                 applicants: 145,
                 time: '4 days ago',
                 type: 'Internship',
-                category: 'Non-tech'
+                category: 'Non-tech',
+                description: 'Assist in analyzing business data, preparing reports, and identifying trends to support strategic decisions.',
+                skills: ['Excel', 'SQL', 'Business Analysis', 'Presentation Skills']
             }
         ];
+
 
         function renderCompanies() {
             const container = document.getElementById('companies');
@@ -260,12 +274,12 @@
                 let badgeColor = '', badgeText = '';
                 if (job.type === 'Internship') {
                     badgeColor = 'background-color:#dbeafe'; // Blue
-                    badgeText =  'color: #1e40af';
+                    badgeText = 'color: #1e40af';
                 } else if (job.type === 'Remote') {
                     badgeColor = 'background-color:#dcfce7'
                     badgeText = 'color: #166534';
                 } else { // Purple (Full-time or default)
-                    badgeColor =  'background-color:#f3e8ff'
+                    badgeColor = 'background-color:#f3e8ff'
                     badgeText = 'color: #6b21a8';
                 }
 
@@ -284,7 +298,8 @@
           <p class="small text-muted">${job.location}</p>
           <p class="small text-muted">💰 ${job.salary}</p>
           <p class="small text-muted">👥 ${job.applicants} applicants • 🕒 ${job.time}</p>
-          <button class="apply-btn w-100">Apply Now 🚀</button>
+          <button class="apply-btn w-100" onclick='viewJob(${jobs.indexOf(job)})'>Apply Now 🚀</button>
+
         </div>
       </div>
     `;
@@ -307,11 +322,18 @@
             }
         }
 
+        function viewJob(index) {
+            const job = jobs[index];
+            localStorage.setItem('selectedJob', JSON.stringify(job));
+            window.location.href = 'jobDetails.html';
+        }
+
+
         // Init
         renderCompanies();
         renderJobs(jobs);
     </script>
-     <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS (missing from your code) -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
